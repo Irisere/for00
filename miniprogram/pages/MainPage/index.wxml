@@ -1,3 +1,4 @@
+<wxs module="util" src="../util.wxs" />
 <view style="width:100%; background: none;">
 
 <swiper indicator-dots="true" autoplay="true" interval="2000" duration="500" style="background: white; height: 200px; width: 100%;">
@@ -24,18 +25,77 @@
 <view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
   <view class="form-cell">
     <view class="slide">
-      <view class="title">已经在一起 <text class="nums">{{days}} </text>天啦!</view>
+      <view class="title">🗓️已经在一起 <text class="nums">{{days}} </text>天啦!</view>
     </view>
   </view>
   <view class="form-cell">
     <view class="slide">
-      <view class="title">今天想做什么呢？</view>
+      <view class="title">💫今天想做什么呢？</view>
     </view>
   </view>
 </view>
-<!--
-<view bindtap="requestSubscribeMessage">接收服务通知</view>
 
--->
+<view wx:if="{{!isSubscribed}}" bindtap="requestSubscribeMessage" 
+      style="width: 90%; z-index: 0; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); padding: 8px 0; border-radius: 8px; background: #fff; margin: 20px auto; text-align: center;">
+  
+    <view class="form-group_label" style="font-size: 16px; font-weight: bold; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center;">
+        点击接收服务通知<mp-badge content="{{notificationCount}}" style="margin-left: 5px;" />
+    </view>
+</view>
+
+<view class="form-group_label">😸 待办提醒</view>
+<view class="container" wx:if="{{allMemos.length > 0}}">
+
+  <view class="form-group_label">未完成<mp-badge content="{{unfinishedMemos.length}}" style="margin-left: 5px;" /></view>
+  <view class="form-group" wx:if="{{unfinishedMemos.length > 0}}" 
+  style="z-index: 0; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+    <view class="form-cell" wx:for="{{unfinishedMemos}}" wx:key="index">
+      <mp-slideview buttons="{{slideButtons}}" data-index='{{index}}' icon="{{true}}" bindbuttontap="slideButtonTapUpper">
+        <view class="slide" data-index="{{index}}" bindtap="toDetailPageUpper">
+          <view class="mission-info">
+            <view class="mission-info_title">{{util.filterStr(item.title, 10)}}</view>
+            <view class="mission-info_desc">{{util.filterStr(item.desc, 10)}}</view>
+            <view class="mission-info_date">📅 {{util.cutStr(item.date, 10)}} </view>
+          </view>
+          <view class="mission-info_author">
+            <image style="position: absolute; width: 65%; bottom: 0;" wx:if="{{item._openid === _openidA}}" mode="widthFix" src="../Mission/Images/MissionA.jpg"/>
+            <image style="position: absolute; width: 65%; bottom: 0;" wx:if="{{item._openid === _openidB}}" mode="widthFix" src="../Mission/Images/MissionB.jpg"/>
+          </view>
+          <image wx:if="{{item.star}}" class="star" src="../Mission/Images/Star.png" />
+        </view>
+      </mp-slideview>
+    </view>
+  </view>
+
+  <view class="form-group_label">已完成<mp-badge content="{{finishedMemos.length}}" style="margin-left: 5px;" /></view>
+  <view class="form-group" wx:if="{{finishedMemos.length > 0}}" 
+  style="z-index: 0; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+    <view class="form-cell" wx:for="{{finishedMemos}}" wx:key="index">
+      <mp-slideview buttons="{{slideButtons}}" data-index='{{index}}' icon="{{true}}" bindbuttontap="slideButtonTapLower">
+        <view class="slide" data-index="{{index}}" bindtap="toDetailPageLower">
+          <view class="mission-info">
+            <view class="mission-info_title">{{util.filterStr(item.title, 10)}}</view>
+            <view class="mission-info_desc">{{util.filterStr(item.desc, 10)}}</view>
+            <view class="mission-info_date">📅 {{util.cutStr(item.date, 10)}} </view>
+          </view>
+          <view class="mission-info_author">
+              <image style="position: absolute; width:65%; bottom: 0;" wx:if="{{item._openid === _openidA}}" mode="widthFix" src="../Mission/Images/MissionA.jpg"/>
+              <image style="position: absolute; width:65%; bottom: 0;" wx:if="{{item._openid === _openidB}}" mode="widthFix" src="../Mission/Images/MissionB.jpg"/>
+          </view>
+          <image wx:if="{{item.star}}" class="star" src="../Mission/Images/Star.png" />
+        </view>
+      </mp-slideview>
+    </view>
+  </view>
+</view>
 
 </view>
+
+<movable-area style="pointer-events: none; position: fixed; width: 100%; height: 100%;">
+  <movable-view style="pointer-events: auto; width: 20%; height: 20%;" x="{{screenWidth}}" y="{{screenHeight}}" direction="all">
+    <button class="btn-normal" hover-class="btn-hover" size="mini" bindtap="toAddPage" 
+    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+      <image style = "margin-top: 10px; height: 100%; width: 100%;" mode="widthFix" src="../Mission/Images/Plus.png"/>提醒
+    </button>
+  </movable-view>
+</movable-area>

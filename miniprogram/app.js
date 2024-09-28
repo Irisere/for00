@@ -19,6 +19,7 @@ App({
       collectionMarketList: 'MarketList',
       collectionStorageList: 'StorageList',
       collectionUserList: 'UserList',
+      collectionMemoList: 'MemoList',
 
       //最多单次交易积分
       maxCredit: 500,

@@ -32,3 +32,51 @@
   padding: 10px;
   position: relative;
 }
+
+.mission-info {
+  width: auto;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column
+}
+.mission-info_title {
+  font-size: 18px;
+}
+.mission-info_desc {
+  font-size: 14px;
+  color: #BDBDBD;
+}
+.mission-info_date {
+  font-size: 10px;
+  color: #BDBDBD;
+}
+.mission-info_author {
+  width: 70px;
+  height: 100%;
+  position: absolute;
+  right: 10%;
+  bottom: 0;
+}
+
+
+.star {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.markBtn .weui-slideview__btn {background-color: greenyellow;}
+.starBtn .weui-slideview__btn {background-color: gold;}
+.removeBtn .weui-slideview__btn {background-color: lightsalmon;}
+
+.btn-normal{
+  margin: 2%;
+  color: white;
+  background-color: #3d3d3d;
+}
+.btn-hover{
+  color: black;
+  background-color: gray;
+}
