@@ -10,6 +10,7 @@
     "pages/MemoAdd/index",
     "pages/MemoDetail/index",
     "pages/Account/index",
+    "pages/AI/index",
     "pages/ItemDetail/index"
   ],
   "window": {

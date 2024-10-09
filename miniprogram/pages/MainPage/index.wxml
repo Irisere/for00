@@ -21,7 +21,7 @@
   </view>
 </view>
 
-<view class="form-group_label">🐻 欢迎回来</view>
+<view class="form-group_label">💌 欢迎回来</view>
 <view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
   <view class="form-cell">
     <view class="slide">
@@ -43,7 +43,7 @@
     </view>
 </view>
 
-<view class="form-group_label">😸 待办提醒</view>
+<view class="form-group_label">🐾 待办提醒</view>
 <view class="container" wx:if="{{allMemos.length > 0}}">
 
   <view class="form-group_label">未完成<mp-badge content="{{unfinishedMemos.length}}" style="margin-left: 5px;" /></view>
@@ -96,6 +96,15 @@
     <button class="btn-normal" hover-class="btn-hover" size="mini" bindtap="toAddPage" 
     style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
       <image style = "margin-top: 10px; height: 100%; width: 100%;" mode="widthFix" src="../Mission/Images/Plus.png"/>提醒
+    </button>
+  </movable-view>
+</movable-area>
+
+<movable-area style="pointer-events: none; position: fixed; width: 100%; height: 100%;">
+  <movable-view style="pointer-events: auto; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;" x="{{screenWidth*0.8}}" y="{{screenHeight*0.28}}" direction="all">
+    <button class="btn-normal" hover-class="btn-hover" size="mini" bindtap="toAIPage" 
+    style="width: 100%; height: 100%; border-radius: 50%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); display: flex; align-items: center; justify-content: center;">
+      AI
     </button>
   </movable-view>
 </movable-area>

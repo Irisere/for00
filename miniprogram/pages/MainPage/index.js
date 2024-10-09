@@ -100,6 +100,9 @@ Page({
   async toAddPage() {
     wx.navigateTo({url: '../MemoAdd/index'})
   },
+  async toAIPage() {
+    wx.navigateTo({url: '../AI/index'})
+  },
     //将待办划分为：完成，未完成
     filterMemo(){
       let memoList = []

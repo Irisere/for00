@@ -19,14 +19,6 @@ Page({
       },
       success: res => {
           console.warn('[云函数] [openapi] subscribeMessage.send 调用成功：', res)
-          wx.showModal({
-          title: '发送成功',
-          content: '请返回微信主界面查看',
-          showCancel: false,
-          })
-          wx.showToast({
-          title: '发送成功，请返回微信主界面查看',
-          })
           this.setData({
           subscribeMessageResult: JSON.stringify(res.result)
           })
@@ -162,7 +154,7 @@ Page({
         )
         setTimeout(function () {
             wx.navigateBack()
-        }, 1000)
+        }, 0)
     }
   },
 

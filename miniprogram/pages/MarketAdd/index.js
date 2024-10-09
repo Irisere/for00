@@ -125,7 +125,7 @@ Page({
         )
         setTimeout(function () {
             wx.navigateBack()
-        }, 1000)
+        }, 0)
     }
   },
 

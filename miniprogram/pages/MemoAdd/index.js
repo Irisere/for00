@@ -92,7 +92,7 @@ Page({
         )
         setTimeout(function () {
             wx.navigateBack()
-        }, 1000)
+        }, 0)
   },
 
   // 重置所有表单项

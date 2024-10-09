@@ -1,0 +1,67 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative; /* 设置为相对定位 */
+}
+
+.chat-container {
+  flex: 1; /* Chat area takes up remaining space */
+  overflow-y: auto; /* 支持垂直滚动 */
+  margin: 10px ;
+  padding-bottom: 10px; /* 给Chat区域添加一些底部填充 */
+}
+
+.chat-message {
+  margin: 10px 0; /* 上下外边距 */
+}
+
+.user-message {
+  display: inline-block; /* 使长度自适应 */
+  text-align: right; /* 用户消息右对齐 */
+  background-color: #ff99aaaf; /* 背景颜色 */
+  border-radius: 10px;
+  padding: 10px;
+  max-width: 70%; /* 最大宽度 */
+  margin-right: 0; /* 自动左边距使其靠右 */
+}
+
+.ai-message {
+  display: inline-block; /* 使长度自适应 */
+  text-align: left; /* AI消息左对齐 */
+  background-color: #ff99aa50; /* 背景颜色 */
+  border-radius: 10px;
+  padding: 10px;
+  max-width: 70%; /* 最大宽度 */
+  margin-right: auto; /* 自动右边距使其靠左 */
+}
+
+.loading-message {
+  text-align: center; /* 居中显示 */
+  color: #999; /* 颜色 */
+  margin: 10px 0; /* 上下外边距 */
+  font-size: 14px; /* 字体大小 */
+}
+
+.input-container {
+  display: flex; /* 使用flex布局 */
+  padding: 10px; /* 为容器添加内边距 */
+  background-color: white; /* 背景颜色 */
+}
+
+.input-field {
+  flex: 7.5; /* 输入框占据75%的宽度 */
+  padding: 10px; /* 内边距 */
+  border-radius: 10px; /* 圆角 */
+  border: 1px solid #ccc; /* 边框样式 */
+}
+
+.btn-send {
+  flex: 2.5; /* 发送按钮占据25%的宽度 */
+  margin-left: 10px; /* 输入框和按钮之间的间距 */
+  background-color: #ff99aa; /* 按钮背景颜色 */
+  color: white; /* 按钮字体颜色 */
+  padding: 10px; /* 内边距 */
+  border: none; /* 去掉默认边框 */
+  border-radius: 10px; /* 圆角 */
+}

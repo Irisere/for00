@@ -1,0 +1,14 @@
+<view class="container">
+  <view class="chat-container">
+    <view class="chat-message" wx:for="{{messages}}" wx:key="index">
+      <view class="user-message" wx:if="{{item.type === 'user'}}">{{item.content}}</view>
+      <view class="ai-message" wx:if="{{item.type === 'ai'}}">{{item.content}}</view>
+    </view>
+    <view wx:if="{{loading}}" class="loading-message">{{loadingMessage}}</view>
+  </view>
+
+  <view class="input-container">
+    <input class="input-field" placeholder="输入你的问题..." bindinput="onInput" value="{{input}}" />
+    <button class="btn-send" bindtap="onAsk">发送</button>
+  </view>
+</view>
